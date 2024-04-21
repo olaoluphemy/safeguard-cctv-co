@@ -1,0 +1,58 @@
+export const data = [
+  {
+    imgSrc: "image-10.png",
+    description: "Blurams MI 360 wifi camera",
+    id: 1234,
+    rating: 4,
+    price: "30,000",
+  },
+  {
+    imgSrc: "image-4.png",
+    description: "Hikvision-Bullet camera",
+    id: 3132,
+    rating: 3,
+    price: "98,205",
+  },
+  {
+    imgSrc: "image-5.png",
+    description: "Hikvisin 8 cctv camera kit",
+    id: 3334,
+    rating: 2,
+    price: "415,000",
+  },
+  {
+    imgSrc: "image-6.png",
+    description: "ESCAM solar panel camera",
+    id: 3536,
+    rating: 3,
+    price: "120,000",
+  },
+  {
+    imgSrc: "image-7.png",
+    description: "AHD - 8 outdoor camera",
+    id: 3839,
+    rating: 2,
+    price: "110,000",
+  },
+  {
+    imgSrc: "image-8.png",
+    description: "Hilook turbo dome cctv",
+    id: 4041,
+    rating: 3,
+    price: "35,000",
+  },
+  {
+    imgSrc: "image-9.png",
+    description: "Unique star wireless MS-T",
+    id: 4243,
+    rating: 5,
+    price: "96,000",
+  },
+  {
+    imgSrc: "image-10.png",
+    description: "Blurams MI 360 wifi camera",
+    id: 1234,
+    rating: 4,
+    price: "30,000",
+  },
+];
