@@ -7,7 +7,7 @@ function TestimonialsContainer() {
   return (
     <>
       <div
-        className="relative mt-40 flex flex-col-reverse gap-6 sm:grid lg:grid-cols-2"
+        className="relative mt-40 flex flex-col-reverse gap-6 sm:flex-none lg:grid lg:grid-cols-2"
         id="testimonials"
       >
         <Testimonial
@@ -15,12 +15,12 @@ function TestimonialsContainer() {
           setCurrentView={setCurrentView}
         />
         <CompanyNote />
-        <div className="hidden sm:block">
+        <div className="hidden lg:block">
           <NavigationButtons setCurrentView={setCurrentView} />
         </div>
-        <div className=" absolute bottom-[-12%] right-0 z-[-100] h-[120%] w-[70%] bg-faintBlue sm:bottom-[5%]"></div>
+        <div className=" absolute bottom-[-12%] right-0 z-[-100] h-[110%] w-[70%] bg-faintBlue sm:bottom-[-12%] md:bottom-[-14%] lg:bottom-[0]"></div>
       </div>
-      <div className=" sm:hidden">
+      <div className=" lg:hidden">
         <NavigationButtons setCurrentView={setCurrentView} />
       </div>
     </>
@@ -53,7 +53,7 @@ export function NavigationButtons({ setCurrentView }) {
 export function Testimonial({ currentView }) {
   return (
     <div>
-      <section className=" relative min-h-[270px] w-[85%] max-w-[410px] overflow-hidden sm:right-[-20%] sm:min-h-[290px] sm:w-[70%]">
+      <section className=" relative mx-auto min-h-[270px] w-[85%] max-w-[410px]  overflow-hidden sm:min-h-[290px] sm:w-[70%]">
         {testimonialsData.map((user, i) => (
           <TestimonialContent
             key={i}
@@ -75,7 +75,7 @@ function TestimonialContent({ currentView, index, user }) {
 
         filter: `blur(${index === currentView ? "0" : "2px"})`,
       }}
-      className={`absolute left-0 top-0 z-[-10] ml-24 h-full min-w-[17rem] rounded-xl bg-bgDarkblue p-8 text-white transition-all duration-[0.2s] ease-in sm:pt-12`}
+      className={`absolute left-0 top-0 z-[-10] ml-24 h-full  rounded-xl bg-bgDarkblue p-8 text-white transition-all duration-[0.2s] ease-in sm:pt-12`}
     >
       <img src="/quotes.png" alt="quotes" className="mb-5 h-[30px]" />
       <p className="text-xs opacity-80">
@@ -98,18 +98,18 @@ function TestimonialContent({ currentView, index, user }) {
 
 function CompanyNote() {
   return (
-    <div className="sm:mt-o mt-10 px-8 text-center sm:text-start">
+    <div className="sm:mt-o mt-10 px-8 text-center lg:text-start">
       <p className=" text-xs text-darkOrange">Testimonials</p>
       <h2 className=" mt-1 text-lg  font-bold">
         What our customers say about us
       </h2>
-      <p className=" mt-4  text-xs">
+      <p className=" mt-4 text-xs">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi ullam
         tenetur veritatis quae esse voluptas cum culpa est dicta atque natus
         recusandae, nam eum aliquam ducimus, deserunt corporis maxime rem?
       </p>
       <p
-        className=" mt-10 cursor-pointer text-xs font-bold text-darkOrange underline"
+        className=" mt-10 cursor-pointer text-xs font-bold text-darkOrange underline md:text-center lg:text-start"
         onClick={() => toast.success("coming soon")}
       >
         Write a review

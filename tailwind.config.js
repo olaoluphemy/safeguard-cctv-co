@@ -22,6 +22,7 @@ export default {
       gridTemplateColumns: {
         table: "2fr 1fr 1fr 1fr 0.3fr",
         checkout: "2fr 1fr",
+        test: "2fr 1fr",
       },
     },
   },
