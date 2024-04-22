@@ -3,7 +3,10 @@ import CartItemRows from "./CartItemRows";
 function Table({ cartItems }) {
   return (
     <>
-      <div role="row" className="grid grid-cols-table text-sm font-bold">
+      <div
+        role="row"
+        className="grid-cols-tableSm grid text-sm font-bold sm:grid-cols-table"
+      >
         <div>Product</div>
         <div>Price</div>
         <div>Quantity</div>

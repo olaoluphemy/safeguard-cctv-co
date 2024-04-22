@@ -7,7 +7,7 @@ import Header from "../ui/Header";
 // import CheckoutError from "../features/checkout/CheckoutError";
 import BillingInfo from "../features/checkout/BillingInfo";
 import OrderDetails from "../features/checkout/OrderDetails";
-import { setLoadingStatus } from "../Store/orderSlice";
+import { completeOrder, setLoadingStatus } from "../Store/orderSlice";
 import { clearCart } from "../Store/cartSlice";
 import Loader from "../ui/Loader";
 
@@ -60,7 +60,7 @@ export async function action({ request }) {
   const formData = await request.formData();
 
   const data = Object.fromEntries(formData);
-  console.log(data);
+  // Store.dispatch(data);
 
   //Dirty trick to display loader :(
   Store.dispatch(setLoadingStatus("loading"));
@@ -71,8 +71,8 @@ export async function action({ request }) {
 
   return await new Promise(function (resolve) {
     setTimeout(function () {
-      Store.dispatch(setLoadingStatus("idle"));
-
+      // Store.dispatch(setLoadingStatus("idle"));
+      Store.dispatch(completeOrder(data));
       resolve(redirect("/cart/checkout/success"));
     }, 2200);
   });

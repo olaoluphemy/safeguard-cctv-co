@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   couponCode: "PH3-DEV",
@@ -44,7 +44,7 @@ const cartSlice = createSlice({
       if (action.payload.toUpperCase() === state.couponCode)
         state.isDiscounted = true;
 
-      console.log(current(state));
+      // console.log(current(state));
     },
 
     clearCart(state) {

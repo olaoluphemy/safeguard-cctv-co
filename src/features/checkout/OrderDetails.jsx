@@ -25,29 +25,18 @@ function OrderDetails({ formButton }) {
   );
 
   function handlePlaceOrder() {
+    // completeOrder({ totalPurchase, subtotalPrice, cart });
+
     formButton.current.click();
   }
 
   return (
     <div className="rounded-lg border-[1px] border-borderLight pb-8">
-      <h2 className=" rounded-t-lg bg-faintBlue px-4 py-4 text-lg font-bold">
-        Your Order
-      </h2>
-      <ul className=" orderDeets h-[150px] overflow-y-scroll">
-        {cart.map((item, i) => (
-          <ItemList key={i} item={item} />
-        ))}
-      </ul>
-
-      <p className=" flex justify-between border-b-[1px] p-5 text-xs font-bold">
-        SUBTOTAL <span className=" font-normal">#{subtotalPrice}</span>
-      </p>
-      <p className=" flex justify-between border-b-[1px] p-5 text-xs font-bold">
-        SHIPPING FEE <span className=" font-normal">#5000</span>
-      </p>
-      <p className=" flex justify-between border-b-[1px] p-5 text-xs font-bold">
-        TOTAL <span className=" font-normal">#{totalPurchase}</span>
-      </p>
+      <Order
+        cart={cart}
+        subtotalPrice={subtotalPrice}
+        totalPurchase={totalPurchase}
+      />
 
       <div className=" items center flex border-b-[1px] p-5">
         <input
@@ -85,7 +74,7 @@ function OrderDetails({ formButton }) {
 function ItemList({ item }) {
   const { imgSrc, description, quantity, price } = item;
 
-  console.log(item);
+  // console.log(item);
   return (
     <li className=" flex w-full items-start gap-5 border-b-[1px] p-5  text-xs">
       <img src={`/${imgSrc}`} alt="image-1" className=" h-[60px]" />
@@ -99,6 +88,31 @@ function ItemList({ item }) {
         </p>
       </div>
     </li>
+  );
+}
+
+function Order({ cart, subtotalPrice, totalPurchase }) {
+  return (
+    <>
+      <h2 className=" rounded-t-lg bg-faintBlue px-4 py-4 text-lg font-bold">
+        Your Order
+      </h2>
+      <ul className=" orderDeets h-[150px] overflow-y-scroll">
+        {cart.map((item, i) => (
+          <ItemList key={i} item={item} />
+        ))}
+      </ul>
+
+      <p className=" flex justify-between border-b-[1px] p-5 text-xs font-bold">
+        SUBTOTAL <span className=" font-normal">#{subtotalPrice}</span>
+      </p>
+      <p className=" flex justify-between border-b-[1px] p-5 text-xs font-bold">
+        SHIPPING FEE <span className=" font-normal">#5000</span>
+      </p>
+      <p className=" flex justify-between border-b-[1px] p-5 text-xs font-bold">
+        TOTAL <span className=" font-normal">#{totalPurchase}</span>
+      </p>
+    </>
   );
 }
 

@@ -29,17 +29,21 @@ function CartItemRows({ item }) {
   return (
     <div
       role="row"
-      className="grid grid-cols-table items-center justify-center border-[1px] py-1"
+      className="grid-cols-tableSm grid items-center justify-center border-[1px] py-1 sm:grid-cols-table"
     >
-      <div className="flex items-center">
+      <div className=" items-center sm:flex">
         <img
           src={`/${imgSrc}`}
           alt={`${imgSrc}`}
           className=" h-[70px] p-[0.3rem]"
         />
         <div className=" ml-3">
-          <p className=" text-xs font-bold">{description}</p>
-          <p className="mt-2 text-xs opacity-55">Dome indoor camera</p>
+          <p className=" w-[70px] overflow-hidden overflow-ellipsis whitespace-nowrap text-xs font-bold md:w-[100%]">
+            {description}
+          </p>
+          <p className="w-[70px] overflow-hidden overflow-ellipsis whitespace-nowrap text-xs opacity-55 md:mt-2 md:w-[100%]">
+            Dome indoor camera
+          </p>
         </div>
       </div>
       <div className="text-xs">#{price}</div>

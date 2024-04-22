@@ -21,6 +21,7 @@ export default {
       },
       gridTemplateColumns: {
         table: "2fr 1fr 1fr 1fr 0.3fr",
+        tableSm: "1.5fr 1fr 1fr 1fr 0.5fr",
         checkout: "2fr 1fr",
         test: "2fr 1fr",
       },
