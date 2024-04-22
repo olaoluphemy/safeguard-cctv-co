@@ -110,7 +110,7 @@ export const data = [
     description: "AHD CCTV Camera - Set of Boutdoor 18 channel DVR",
     id: 3839,
     rating: 3,
-    price: "110, 000",
+    price: "110,000",
   },
   {
     imgSrc: "image-8.png",

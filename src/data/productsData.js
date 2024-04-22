@@ -708,7 +708,7 @@ export const productsData = [
     description: "AHD CCTV Camera - Set of Boutdoor 18 channel DVR",
     id: 3839,
     rating: 3,
-    price: "110, 000",
+    price: "110,000",
     overviewDetails: {
       details:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut nam error animi, maxime mollitia delectus ullam quisquam tempora beatae reiciendis?",

@@ -30,7 +30,6 @@ const orderSlice = createSlice({
     setLoadingStatus(state, action) {
       state.loadingStatus = action.payload;
 
-      console.log(state.loadingStatus);
     },
   },
 });

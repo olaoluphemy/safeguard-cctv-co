@@ -18,7 +18,6 @@ function CartTotal() {
     couponCode: discountCode,
   } = useSelector((store) => store.cart);
   const navigate = useNavigate();
-  // const
 
   const dispatch = useDispatch();
 
@@ -30,7 +29,6 @@ function CartTotal() {
   const total = isDiscounted
     ? (subtotalPrice + 5000) * 0.5
     : subtotalPrice + 5000;
-  console.log(total);
 
   function handleApplyDiscount(e) {
     e.preventDefault();
