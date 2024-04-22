@@ -63,19 +63,21 @@ export const data = [
     rating: 3,
     price: "45,500",
   },
-  {
-    imgSrc: "image-2s.png",
-    description: "CCTV Wireless CCTV WIFI",
-    id: 2425,
-    rating: 3,
-    price: "135,000",
-  },
+
   {
     imgSrc: "image-19.png",
     description: "Wifi Camera IP Bulb Camera",
     id: 2627,
     rating: 3,
     price: "56,000",
+  },
+
+  {
+    imgSrc: "image-17.png",
+    description: "Dahua HDCVI 2MP CCTV kit",
+    id: 1006,
+    rating: 3,
+    price: "135,000",
   },
   {
     imgSrc: "image-16.png",
@@ -84,13 +86,7 @@ export const data = [
     rating: 3,
     price: "45,500",
   },
-  {
-    imgSrc: "image-2s.png",
-    description: "CCTV Wireless CCTV WIFI",
-    id: 3031,
-    rating: 3,
-    price: "135,000",
-  },
+
   {
     imgSrc: "image-17.png",
     description: "Dahua HDCVI 2MP CCTV kit",
@@ -99,18 +95,26 @@ export const data = [
     price: "135,000",
   },
   {
+    imgSrc: "image-9.png",
+    description: "Unique star wireless MS-T",
+    id: 4243,
+    rating: 5,
+    price: "96,000",
+  },
+  {
+    imgSrc: "image-2s.png",
+    description: "CCTV Wireless CCTV WIFI",
+    id: 2425,
+    rating: 3,
+    price: "135,000",
+  },
+
+  {
     imgSrc: "image-15.png",
     description: "CCTV Indoor Solar CCTV",
     id: 3435,
     rating: 3,
     price: "280,000",
-  },
-  {
-    imgSrc: "image-7.png",
-    description: "AHD CCTV Camera - Set of Boutdoor 18 channel DVR",
-    id: 3839,
-    rating: 3,
-    price: "110,000",
   },
   {
     imgSrc: "image-8.png",
@@ -119,11 +123,12 @@ export const data = [
     rating: 3,
     price: "35,000",
   },
+
   {
-    imgSrc: "image-9.png",
-    description: "Unique star wireless MS-T",
-    id: 4243,
-    rating: 5,
-    price: "96,000",
+    imgSrc: "image-2s.png",
+    description: "CCTV Wireless CCTV WIFI",
+    id: 1002,
+    rating: 3,
+    price: "135,000",
   },
 ];
