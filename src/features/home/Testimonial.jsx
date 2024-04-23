@@ -18,7 +18,7 @@ function TestimonialsContainer() {
         <div className="hidden lg:block">
           <NavigationButtons setCurrentView={setCurrentView} />
         </div>
-        <div className=" absolute bottom-[-12%] right-0 z-[-100] h-[110%] w-[70%] bg-faintBlue sm:bottom-[-12%] md:bottom-[-14%] lg:bottom-[0]"></div>
+        <div className="absolute bottom-[-12%] right-0 z-[-100] h-[110%] w-[100%] bg-faintBlue sm:bottom-[-12%] sm:w-[70%] md:bottom-[-14%] lg:bottom-[0]"></div>
       </div>
       <div className=" lg:hidden">
         <NavigationButtons setCurrentView={setCurrentView} />
