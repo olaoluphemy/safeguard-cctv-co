@@ -9,7 +9,7 @@ function LandingHeader() {
         <p className="my-5 text-xs text-darkOrange sm:hidden">Save 30% off</p>
       </Container>
       <div className="mx-auto w-[92%] sm:w-[100%]">
-        <main className="min-h-[60vh] bg-faintBlue pb-10">
+        <main className="h-fit bg-faintBlue pb-10 sm:min-h-[60vh]">
           <section className=" ml-auto mr-auto  w-[92%] grid-cols-2 gap-x-12 gap-y-12 md:grid md:pt-20">
             <div className="hidden sm:block">
               <Introduction />
