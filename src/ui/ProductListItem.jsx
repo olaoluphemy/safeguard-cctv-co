@@ -40,8 +40,15 @@ function ProductListItem({ data }) {
           {description}
         </p>
         <StarRating rating={rating} />
-        <p className=" self-center text-sm font-semibold text-darkOrange sm:self-start">
-          #{price}.00
+        <p className=" flex items-center self-center text-sm font-semibold text-darkOrange sm:self-start">
+          <span>
+            <img
+              src="/currency.png"
+              alt="currency"
+              className="mr-[1px] h-[0.6rem]"
+            />
+          </span>
+          {price}.00
         </p>
 
         <Button

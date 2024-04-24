@@ -41,8 +41,15 @@ function Item() {
         </div>
         <div className="p-3">
           <h1 className=" text-xl font-bold">{description}</h1>
-          <p className=" mb-7  mt-2 text-sm font-bold text-darkOrange">
-            #{price}.00
+          <p className=" mb-7  mt-2 flex items-center text-sm font-bold text-darkOrange">
+            <span>
+              <img
+                src="/currency.png"
+                alt="currency"
+                className="mr-[1px] h-[0.6rem]"
+              />
+            </span>
+            {price}.00
           </p>
           <div className=" flex items-center justify-between sm:flex-col">
             <p className="text-textLigh w-fi text-xs opacity-70 sm:self-start">

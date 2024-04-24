@@ -84,7 +84,17 @@ function ItemList({ item }) {
           Quantity: <span className=" font-bold">{quantity}</span>
         </p>
         <p className=" flex w-[60%] justify-between text-[0.6rem] font-extralight">
-          Price: <span className=" font-bold"> #{price}</span>
+          Price:
+          <span className=" flex items-center font-bold">
+            <span>
+              <img
+                src="/currency-dark.png"
+                alt="currency"
+                className="mr-[1px] h-[0.6rem]"
+              />
+            </span>
+            {price}
+          </span>
         </p>
       </div>
     </li>
@@ -104,13 +114,43 @@ function Order({ cart, subtotalPrice, totalPurchase }) {
       </ul>
 
       <p className=" flex justify-between border-b-[1px] p-5 text-xs font-bold">
-        SUBTOTAL <span className=" font-normal">#{subtotalPrice}</span>
+        SUBTOTAL{" "}
+        <span className=" flex items-center font-normal">
+          <span>
+            <img
+              src="/currency-dark.png"
+              alt="currency"
+              className="mr-[1px] h-[0.6rem]"
+            />
+          </span>
+          {subtotalPrice}
+        </span>
       </p>
       <p className=" flex justify-between border-b-[1px] p-5 text-xs font-bold">
-        SHIPPING FEE <span className=" font-normal">#5000</span>
+        SHIPPING FEE{" "}
+        <span className=" flex items-center font-normal">
+          <span>
+            <img
+              src="/currency-dark.png"
+              alt="currency"
+              className="mr-[1px] h-[0.6rem]"
+            />
+          </span>
+          5000
+        </span>
       </p>
       <p className=" flex justify-between border-b-[1px] p-5 text-xs font-bold">
-        TOTAL <span className=" font-normal">#{totalPurchase}</span>
+        TOTAL{" "}
+        <span className=" flex items-center font-normal">
+          <span>
+            <img
+              src="/currency-dark.png"
+              alt="currency"
+              className="mr-[1px] h-[0.6rem]"
+            />
+          </span>
+          {totalPurchase}
+        </span>
       </p>
     </>
   );

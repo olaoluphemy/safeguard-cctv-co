@@ -29,7 +29,7 @@ function CartItemRows({ item }) {
   return (
     <div
       role="row"
-      className="grid-cols-tableSm grid items-center justify-center border-[1px] py-1 sm:grid-cols-table"
+      className="grid grid-cols-tableSm items-center justify-center border-[1px] py-1 sm:grid-cols-table"
     >
       <div className=" items-center sm:flex">
         <img
@@ -46,7 +46,16 @@ function CartItemRows({ item }) {
           </p>
         </div>
       </div>
-      <div className="text-xs">#{price}</div>
+      <div className="flex items-center text-xs">
+        <span>
+          <img
+            src="/currency-dark.png"
+            alt="currency"
+            className="mr-[1px] h-[0.6rem]"
+          />
+        </span>
+        {price}
+      </div>
       <div className=" flex">
         <p className=" text-xs" role="button" onClick={decrease}>
           -
@@ -56,7 +65,16 @@ function CartItemRows({ item }) {
           +
         </p>
       </div>
-      <div className="text-xs">#{total}</div>
+      <div className="flex items-center text-xs">
+        <span>
+          <img
+            src="/currency-dark.png"
+            alt="currency"
+            className="mr-[1px] h-[0.6rem]"
+          />
+        </span>
+        {total}
+      </div>
       <button className=" mr-5 flex justify-end" onClick={deleteItem}>
         <img src="/delete-x.png" alt="delete-x" className="h-[10px]" />
       </button>

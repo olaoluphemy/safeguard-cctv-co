@@ -54,13 +54,42 @@ function CartTotal() {
       </div>
       <p className=" flex justify-between border-b-[1px]  px-4 py-4">
         SUBTOTAL PRICE{" "}
-        <span className=" font-bold">#{formatNumber(subtotalPrice)}</span>
+        <span className=" flex items-center font-bold">
+          <span>
+            <img
+              src="/currency-dark.png"
+              alt="currency"
+              className="mr-[1px] h-[0.6rem]"
+            />
+          </span>
+          {formatNumber(subtotalPrice)}
+        </span>
       </p>
       <p className=" flex justify-between border-b-[1px] px-4 py-4">
-        SHIPPING FEE <span className=" font-bold">#5000</span>
+        SHIPPING FEE{" "}
+        <span className=" flex items-center font-bold">
+          <span>
+            <img
+              src="/currency-dark.png"
+              alt="currency"
+              className="mr-[1px] h-[0.6rem]"
+            />
+          </span>
+          5000
+        </span>
       </p>
       <p className="  flex justify-between border-b-[1px] px-4 py-4">
-        TOTAL PRICE <span className=" font-bold">#{formatNumber(total)}</span>
+        TOTAL PRICE{" "}
+        <span className=" flex items-center font-bold">
+          <span>
+            <img
+              src="/currency-dark.png"
+              alt="currency"
+              className="mr-[1px] h-[0.6rem]"
+            />
+          </span>
+          {formatNumber(total)}
+        </span>
       </p>
 
       <div className=" flex items-end justify-between border-b-[1px] px-4 py-4">
