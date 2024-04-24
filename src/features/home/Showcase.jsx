@@ -24,22 +24,18 @@ function ShowCase() {
 
 function ShowCaseLayout({ title, description, imgSrc }) {
   return (
-    <div className="flex h-60 items-center justify-between rounded-md bg-faintBlue p-4">
+    <div className="flex h-60 items-center justify-around rounded-md bg-faintBlue p-4">
       <div className="">
         <h2 className="mb-2 font-bold">{title}</h2>
         <p className="mb-12 text-xs text-textLight">{description}</p>
         <Link to="/products">
           <Button
             text="Shop now"
-            extraStyles=" bg-bgDarkblue hover:text-darkOrange"
+            extraStyles=" bg-bgDarkblue hover:opacity-[0.9]"
           />
         </Link>
       </div>
-      <img
-        src={imgSrc}
-        alt="image-1"
-        className={`mb-[2rem] mr-[4rem] w-[28%] `}
-      />
+      <img src={imgSrc} alt="image-1" className={`mb-[2rem] w-[28%]`} />
     </div>
   );
 }

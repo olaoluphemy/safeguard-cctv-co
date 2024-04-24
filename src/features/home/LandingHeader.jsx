@@ -66,7 +66,6 @@ function LandingHeader() {
                   <img src="/trusted.png" alt="" className=" h-4" />
                 </span>
                 <span className="space-x-3 text-center sm:flex sm:flex-col sm:items-start sm:space-x-0">
-                  {/* <span className="flex items-center space-x-3 sm:flex-col sm:items-start sm:space-x-0"> */}
                   <p className="text-sm font-bold">Complementary Setup</p>
                   <p className="text-start text-xs text-textLight">
                     Enjoy fast delivery and peace of mind
@@ -101,7 +100,7 @@ function Introduction({ smallScreen }) {
       <Link to="/products">
         <Button
           text="Shop now"
-          extraStyles={`hover:text-darkOrange bg-bgDarkblue ${smallScreen ? "mt-3" : ""}`}
+          extraStyles={`hover:opacity-[0.9] bg-bgDarkblue ${smallScreen ? "mt-3" : ""}`}
         />
       </Link>
     </div>

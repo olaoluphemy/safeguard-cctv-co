@@ -1,18 +1,37 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { testimonialsData } from "../../data/testimonialsData";
 
 function TestimonialsContainer() {
-  const [currentView, setCurrentView] = useState(0);
+  const [currentView, setCurrentView] = useState(3);
+  const [isPaused, setIsPaused] = useState(false);
+  const timer = useRef(null);
+
+  useEffect(
+    function () {
+      if (isPaused) return clearInterval(timer.current);
+
+      timer.current = setInterval(function () {
+        setCurrentView((s) => (s < testimonialsData.length - 1 ? s + 1 : 0));
+      }, 2500);
+
+      return function () {
+        clearInterval(timer.current);
+      };
+    },
+    [isPaused],
+  );
+
   return (
     <>
       <div
-        className="relative mt-40 flex flex-col-reverse gap-6 sm:flex-none lg:grid lg:grid-cols-2"
+        className="relative mt-10 flex flex-col-reverse gap-6 sm:mt-40 sm:flex-none lg:grid lg:grid-cols-2 lg:items-center"
         id="testimonials"
       >
         <Testimonial
           currentView={currentView}
           setCurrentView={setCurrentView}
+          setIsPaused={setIsPaused}
         />
         <CompanyNote />
         <div className="hidden lg:block">
@@ -32,9 +51,9 @@ export function NavigationButtons({ setCurrentView }) {
     <div className=" flex min-h-20 items-center justify-center space-x-10">
       <p
         className="cursor-pointer transition-all hover:text-4xl hover:text-darkOrange"
-        onClick={() =>
-          setCurrentView((s) => (s > 0 ? s - 1 : testimonialsData.length - 1))
-        }
+        onClick={() => {
+          setCurrentView((s) => (s > 0 ? s - 1 : testimonialsData.length - 1));
+        }}
       >
         &#x2190;
       </p>
@@ -50,16 +69,23 @@ export function NavigationButtons({ setCurrentView }) {
   );
 }
 
-export function Testimonial({ currentView }) {
+export function Testimonial({ currentView, setIsPaused }) {
   return (
-    <div>
-      <section className=" relative mx-auto min-h-[270px] w-[85%] max-w-[410px]  overflow-hidden sm:min-h-[290px] sm:w-[70%]">
+    <div
+      onMouseEnter={() => {
+        setIsPaused(true);
+      }}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* <section className=" relative mx-auto min-h-[270px] w-[85%] max-w-[600px]  overflow-hidden sm:min-h-[290px] sm:w-[70%]"> */}
+      <section className=" relative mx-auto min-h-[270px] w-[95%] max-w-[600px] overflow-hidden  sm:min-h-[290px] sm:w-[100%] ">
         {testimonialsData.map((user, i) => (
           <TestimonialContent
             key={i}
             currentView={currentView}
             index={i}
             user={user}
+            setIsPaused={setIsPaused}
           />
         ))}
       </section>
@@ -71,11 +97,11 @@ function TestimonialContent({ currentView, index, user }) {
   return (
     <div
       style={{
-        transform: `translateX(${index * 100 - currentView * 100}%) scaleY(${index === currentView ? "1" : "0.8"})`,
+        transform: `translateX(${index * 100 - currentView * 100}%) scaleY(${index === currentView ? "1" : "0.85"}) scaleX(${index === currentView ? "1" : "0.9"})`,
 
         filter: `blur(${index === currentView ? "0" : "2px"})`,
       }}
-      className={`absolute left-0 top-0 z-[-10] ml-24 h-full  rounded-xl bg-bgDarkblue p-8 text-white transition-all duration-[0.2s] ease-in sm:pt-12`}
+      className={` ${currentView === 0 ? "right-10 sm:right-20" : "right-0"} absolute right-0 top-0 z-[-10] ml-24 h-full  w-[300px] rounded-xl bg-bgDarkblue p-8 text-white transition-all duration-[0.2s] ease-in sm:w-[400px] sm:pt-12`}
     >
       <img src="/quotes.png" alt="quotes" className="mb-5 h-[30px]" />
       <p className="text-xs opacity-80">
@@ -98,7 +124,7 @@ function TestimonialContent({ currentView, index, user }) {
 
 function CompanyNote() {
   return (
-    <div className="sm:mt-o mt-10 px-8 text-center lg:text-start">
+    <div className="mt-10 px-8 text-center sm:mt-0 lg:text-start">
       <p className=" text-xs text-darkOrange">Testimonials</p>
       <h2 className=" mt-1 text-lg  font-bold">
         What our customers say about us

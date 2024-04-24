@@ -30,13 +30,13 @@ function ProductListItem({ data }) {
   }
   return (
     <Link to={`/products/${id}`}>
-      <li className=" group flex flex-col border-[1px] p-3">
+      <li className="group flex flex-col border-[1px] p-3">
         <img
           src={`/${imgSrc}`}
           alt="image-10.png"
           className=" z-[-5] w-[70%] self-center transition-all group-hover:scale-[0.85]"
         />
-        <p className=" mt-5  self-center text-xs font-bold sm:self-start">
+        <p className=" mt-5  w-[150px] self-center overflow-hidden text-ellipsis whitespace-nowrap text-xs font-bold sm:self-start lg:w-full lg:whitespace-normal">
           {description}
         </p>
         <StarRating rating={rating} />
@@ -46,7 +46,7 @@ function ProductListItem({ data }) {
 
         <Button
           text="Add to cart"
-          extraStyles={` bg-bgDarkblue mt-5 ${!isCarted && "hover:text-darkOrange"} self-center sm:self-start`}
+          extraStyles={` bg-bgDarkblue mt-5 ${!isCarted && "hover:opacity-[0.9]"} self-center sm:self-start`}
           onClick={updateCart}
           disabled={isCarted}
         />

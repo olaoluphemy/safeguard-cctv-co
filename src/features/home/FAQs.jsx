@@ -8,7 +8,7 @@ function FAQs() {
 
   return (
     <Container>
-      <p className=" text-center text-sm text-darkOrange">
+      <p className=" mt-10 text-center text-sm text-darkOrange sm:mt-20">
         You have any questions
       </p>
       <h1 className=" mb-7 text-center text-xl font-bold">

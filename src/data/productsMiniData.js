@@ -74,7 +74,7 @@ export const data = [
 
   {
     imgSrc: "image-17.png",
-    description: "Dahua HDCVI 2MP CCTV kit",
+    description: "POMED HDCVI 2MP CCTV kit",
     id: 1006,
     rating: 3,
     price: "135,000",
