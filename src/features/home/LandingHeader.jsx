@@ -14,26 +14,28 @@ function LandingHeader() {
             <div className="hidden sm:block">
               <Introduction />
             </div>
-            <div className="relative flex h-72 flex-col justify-start">
+            <div className="relative h-72 flex-col justify-start sm:flex">
               <img
                 src="/landing-image-3.png"
                 alt="landing-image-1"
-                className=" absolute left-10 top-1 w-20 sm:left-28"
+                className=" absolute left-[-5] top-1 w-20 sm:left-28"
               />
               <img
                 src="/landing-image-1.png"
                 alt="landing-image-2"
-                className=" absolute bottom-0 left-[50%] w-14"
+                className=" absolute bottom-0 left-[10%] w-14 sm:left-[50%]"
               />
               <img
                 src="/landing-image-2.png"
                 alt="landing-image-3"
-                className=" absolute right-[5.5rem] top-[-50px] w-20"
+                className=" absolute right-[2rem] top-[-30px] w-20 sm:right-[5.5rem] sm:top-[-50px]"
               />
               <img
                 src="/cctv-1.png"
                 alt="/cctv-1.png"
-                className=" mx-auto h-[80%] sm:w-[300px] md:w-[80%] lg:h-full"
+                // className=" absolute sm:relative sm:mx-auto sm:h-[80%] sm:w-[300px] lg:h-full"
+                // className=" mx-auto mt-[10%] h-[80%] sm:mt-0 sm:w-[300px] md:w-[80%] lg:h-full"
+                className=" absolute left-[50%] top-[50%] mx-auto h-[80%] translate-x-[-60%]  translate-y-[-50%] sm:relative sm:left-0 sm:top-0 sm:mt-0 sm:w-[300px] sm:translate-x-0 sm:translate-y-0 md:w-[80%] lg:h-full"
               />
             </div>
           </section>

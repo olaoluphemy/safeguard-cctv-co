@@ -27,9 +27,12 @@ function Success() {
     };
   }, []);
 
-  useEffect(function () {
-    if (!order.orderId) navigate("/");
-  }, []);
+  useEffect(
+    function () {
+      if (!order.orderId) navigate("/");
+    },
+    [order.orderId, navigate],
+  );
 
   return (
     <div>
