@@ -46,6 +46,7 @@ function Inputs({ placeholder, name, label, type }) {
         {label.toUpperCase()}
       </label>
       <input
+        id={name}
         placeholder={placeholder}
         type={type ? type : "text"}
         name={name}

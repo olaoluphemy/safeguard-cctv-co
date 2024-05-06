@@ -30,17 +30,18 @@ function ProductListItem({ data }) {
   }
   return (
     <Link to={`/products/${id}`}>
-      <li className="group flex flex-col border-[1px] p-3">
+      <li className="group flex flex-col items-center border-[1px] p-3">
         <img
           src={`/${imgSrc}`}
           alt="image-10.png"
-          className=" z-[-5] w-[70%] self-center transition-all group-hover:scale-[0.85]"
+          className=" z-[-5] w-[70%] transition-all group-hover:scale-[0.85]"
         />
-        <p className=" mt-5  w-[150px] self-center overflow-hidden text-ellipsis whitespace-nowrap text-xs font-bold sm:self-start lg:w-full lg:whitespace-normal">
+
+        <p className=" mt-5  min-h-[35px] text-center text-xs font-bold xl:min-h-fit">
           {description}
         </p>
         <StarRating rating={rating} />
-        <p className=" flex items-center self-center text-sm font-semibold text-darkOrange sm:self-start">
+        <p className=" flex items-center text-sm font-semibold text-darkOrange ">
           <span>
             <img
               src="/currency.png"
@@ -53,7 +54,7 @@ function ProductListItem({ data }) {
 
         <Button
           text="Add to cart"
-          extraStyles={` bg-bgDarkblue mt-5 ${!isCarted && "hover:opacity-[0.9]"} self-center sm:self-start`}
+          extraStyles={` bg-bgDarkblue mt-5 ${!isCarted && "hover:opacity-[0.9]"} `}
           onClick={updateCart}
           disabled={isCarted}
         />

@@ -77,7 +77,6 @@ export function Testimonial({ currentView, setIsPaused }) {
       }}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* <section className=" relative mx-auto min-h-[270px] w-[85%] max-w-[600px]  overflow-hidden sm:min-h-[290px] sm:w-[70%]"> */}
       <section className=" relative mx-auto min-h-[270px] w-[95%] max-w-[600px] overflow-hidden  sm:min-h-[290px] sm:w-[100%] ">
         {testimonialsData.map((user, i) => (
           <TestimonialContent
@@ -101,7 +100,7 @@ function TestimonialContent({ currentView, index, user }) {
 
         filter: `blur(${index === currentView ? "0" : "2px"})`,
       }}
-      className={` ${currentView === 0 ? "right-10 sm:right-20" : "right-0"} absolute right-0 top-0 z-[-10] ml-24 h-full  w-[300px] rounded-xl bg-bgDarkblue p-8 text-white transition-all duration-[0.2s] ease-in sm:w-[400px] sm:pt-12`}
+      className={` ${currentView === 0 ? "right-10 sm:right-20" : "right-0"} absolute right-0 top-0 z-[-10] ml-24 h-full  w-[300px] rounded-xl bg-bgDarkblue p-8 text-white transition-all duration-[0.3s] ease-in sm:w-[400px] sm:pt-12`}
     >
       <img src="/quotes.png" alt="quotes" className="mb-5 h-[30px]" />
       <p className="text-xs opacity-80">

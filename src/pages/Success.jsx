@@ -3,14 +3,14 @@ import Container from "../ui/Container";
 import Button from "../ui/Button";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../ui/Header";
-import { useSelector } from "react-redux";
-
-function formatNumber(num) {
-  return new Intl.NumberFormat("en-US").format(num);
-}
+import { useDispatch, useSelector } from "react-redux";
+import Amount from "../ui/Amount";
+import MiniHeader from "../ui/MiniHeader";
+import { clearCart } from "../Store/cartSlice";
 
 function Success() {
   const [timer, setTimer] = useState(1200);
+  const dispatch = useDispatch();
 
   const order = useSelector((store) => store.order);
   const navigate = useNavigate();
@@ -29,6 +29,13 @@ function Success() {
 
   useEffect(
     function () {
+      dispatch(clearCart());
+    },
+    [dispatch],
+  );
+
+  useEffect(
+    function () {
       if (!order.orderId) navigate("/");
     },
     [order.orderId, navigate],
@@ -40,7 +47,6 @@ function Success() {
       <Container>
         <div className="flex items-center justify-center">
           <div>
-            <h1 className=" mb-2 text-sm font-bold">Order Details</h1>
             <YourOrder order={order} />
           </div>
         </div>
@@ -52,7 +58,7 @@ function Success() {
           {sec}
         </p>
         <div className=" mt-3 flex justify-center">
-          <Link to="/">
+          <Link to="/home">
             <Button text="Go back Home" extraStyles="bg-bgDarkblue" />
           </Link>
         </div>
@@ -70,29 +76,38 @@ function YourOrder({ order }) {
     totalPurchase,
   } = order;
 
+  console.log(deliveryDetails);
+
   return (
-    <div className=" w-[250px] rounded-lg border-[1px] text-xs">
-      <p className=" border-b-[1px] p-3 hover:bg-[#f4f4f4]">
-        address: {deliveryDetails.address}
-      </p>
-      <p className=" border-b-[1px] p-3 hover:bg-[#f4f4f4]">
-        name: {deliveryDetails.firstName}
-      </p>
-      <p className=" border-b-[1px] p-3 hover:bg-[#f4f4f4]">
-        phone: {deliveryDetails.phone}
-      </p>
-      <p className=" border-b-[1px] p-3 hover:bg-[#f4f4f4]">
-        payment option: {paymentOption}
-      </p>
-      <p className=" border-b-[1px] p-3 hover:bg-[#f4f4f4]">
-        total: #{formatNumber(totalPurchase)}
-      </p>
-      <p className=" border-b-[1px] p-3 hover:bg-[#f4f4f4]">
-        order ID: {orderId}
-      </p>
-      <p className=" border-b-[1px] p-3 hover:bg-[#f4f4f4]">
-        delivery status: {deliveryStatus}
-      </p>
+    <div className="rounded-lg border-[1px] border-borderLight">
+      <MiniHeader description="Order Details " />
+      <Amount
+        description="address"
+        value={deliveryDetails.address}
+        type="ticket"
+      />
+      <Amount
+        description="name"
+        value={deliveryDetails.firstName}
+        type="ticket"
+      />
+      <Amount description="phone" value={deliveryDetails.phone} type="ticket" />
+      <Amount
+        description="payment option"
+        value={paymentOption}
+        type="ticket"
+      />
+      <Amount
+        description="total purchase"
+        amount={totalPurchase}
+        type="ticket"
+      />
+      <Amount description="order ID" value={orderId} type="ticket" />
+      <Amount
+        description="delivery status"
+        value={deliveryStatus}
+        type="ticket"
+      />
     </div>
   );
 }

@@ -1,17 +1,13 @@
-import { useSelector } from "react-redux";
 import ProductListItem from "../../ui/ProductListItem";
-import Loader from "../../ui/Loader";
 import { data } from "../../data/productsMiniData";
+import { useLoaderData } from "react-router-dom";
 
 export function ProductsList() {
-  const loadingStatus = useSelector((store) => store.order.loadingStatus);
-  const isLoading = loadingStatus === "loading";
+  const data = useLoaderData();
 
   return (
     <>
       <ul className="mt-6 grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        {isLoading && <Loader />}
-
         {data.map((data) => (
           <ProductListItem data={data} key={data.id} />
         ))}
@@ -33,6 +29,17 @@ function PaginationButtons({ index }) {
       {index + 1}
     </button>
   );
+}
+
+// eslint-disable-next-line
+export async function loader() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(
+      () =>
+        !data ? reject("sorry, data could not be fetched") : resolve(data),
+      800,
+    );
+  });
 }
 
 export default ProductsList;

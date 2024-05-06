@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import Button from "../../ui/Button";
 import Container from "../../ui/Container";
+import ButtonWithLoader from "../../ui/ButtonWIthLoader";
 
 function ShowCase() {
   return (
@@ -28,12 +27,17 @@ function ShowCaseLayout({ title, description, imgSrc }) {
       <div className="">
         <h2 className="mb-2 font-bold">{title}</h2>
         <p className="mb-12 text-xs text-textLight">{description}</p>
-        <Link to="/products">
+        <ButtonWithLoader
+          text="Shop now"
+          extraStyles=" bg-bgDarkblue hover:opacity-[0.9]"
+        />
+        {/* LEFT FOR LEGACY REASONS */}
+        {/* <Link to="/products">
           <Button
             text="Shop now"
             extraStyles=" bg-bgDarkblue hover:opacity-[0.9]"
           />
-        </Link>
+        </Link> */}
       </div>
       <img src={imgSrc} alt="image-1" className={`mb-[2rem] w-[28%]`} />
     </div>

@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
 import Container from "../../ui/Container";
-import Button from "../../ui/Button";
 import ProductListItem from "../../ui/ProductListItem";
 import { data } from "../../data/productsPreviewData";
+import ButtonWithLoader from "../../ui/ButtonWIthLoader";
 
 function ProductsPreview() {
   return (
@@ -19,9 +18,14 @@ function ProductsPreview() {
         ))}
       </ul>
       <div className="mt-20 flex justify-center">
-        <Link to="/products">
+        {/* LEFT FOR LEGACY REASONS */}
+        {/* <Link to="/products">
           <Button text="View all" extraStyles=" bg-bgDarkblue  mx-auto" />
-        </Link>
+        </Link> */}
+        <ButtonWithLoader
+          text="View all"
+          extraStyles=" bg-bgDarkblue  mx-auto"
+        />
       </div>
     </Container>
   );

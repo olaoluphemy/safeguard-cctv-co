@@ -4,7 +4,7 @@ function StarRating({ rating = 3 }) {
   const [tempRating, setTempRating] = useState(null);
 
   return (
-    <ul className=" my-2  flex self-center sm:self-start">
+    <ul className=" my-2  flex">
       {Array.from({ length: 5 }, (_, index) => (
         <StarList
           index={index}

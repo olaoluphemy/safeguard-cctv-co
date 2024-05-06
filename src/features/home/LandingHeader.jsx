@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import Button from "../../ui/Button";
 import Container from "../../ui/Container";
+import ButtonWithLoader from "../../ui/ButtonWIthLoader";
 
 function LandingHeader() {
   return (
@@ -33,8 +32,6 @@ function LandingHeader() {
               <img
                 src="/cctv-1.png"
                 alt="/cctv-1.png"
-                // className=" absolute sm:relative sm:mx-auto sm:h-[80%] sm:w-[300px] lg:h-full"
-                // className=" mx-auto mt-[10%] h-[80%] sm:mt-0 sm:w-[300px] md:w-[80%] lg:h-full"
                 className=" absolute left-[50%] top-[50%] mx-auto h-[80%] translate-x-[-60%]  translate-y-[-50%] sm:relative sm:left-0 sm:top-0 sm:mt-0 sm:w-[300px] sm:translate-x-0 sm:translate-y-0 md:w-[80%] lg:h-full"
               />
             </div>
@@ -99,12 +96,14 @@ function Introduction({ smallScreen }) {
         Feature packed at a better value than ever powerful sensors to monitor
         yourenvironment.
       </p>
-      <Link to="/products">
-        <Button
+      {/* LEFT FOR LEGACY REASONS */}
+      {/* <Link to="/products"> */}
+      {/* <Button
           text="Shop now"
           extraStyles={`hover:opacity-[0.9] bg-bgDarkblue ${smallScreen ? "mt-3" : ""}`}
-        />
-      </Link>
+        /> */}
+      {/* </Link> */}
+      <ButtonWithLoader text="Shop now" smallScreen={smallScreen} />
     </div>
   );
 }

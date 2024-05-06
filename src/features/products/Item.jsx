@@ -2,8 +2,6 @@ import Button from "../../ui/Button";
 import { productsData } from "../../data/productsData";
 import { useLoaderData } from "react-router-dom";
 import ItemDetails from "./ItemDetails";
-import Store from "../../Store/store";
-import { setLoadingStatus } from "../../Store/orderSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../Store/cartSlice";
 import toast from "react-hot-toast";
@@ -57,7 +55,7 @@ function Item() {
             </p>
             <Button
               text="Add to cart"
-              extraStyles={` bg-bgDarkblue mt-5 ${!isCarted && "hover:text-darkOrange"} self-center sm:self-start`}
+              extraStyles={` bg-bgDarkblue mt-5 ${!isCarted && "hover:opacity-[0.9]"} self-center sm:self-start`}
               onClick={updateCart}
               disabled={isCarted}
             />
@@ -69,19 +67,19 @@ function Item() {
   );
 }
 
+// eslint-disable-next-line
 export async function loader({ params }) {
   const id = params.id;
 
-  Store.dispatch(setLoadingStatus("loading"));
   return await new Promise(function (resolve, reject) {
     const item = productsData.find((item) => item.id === Number(id));
 
     setTimeout(() => {
-      if (!item) reject({ error: "something went wrong..." });
+      if (!item)
+        reject({ error: "something went wrong, item could not be fetched..." });
 
       resolve(item);
-      Store.dispatch(setLoadingStatus("idle"));
-    }, 1500);
+    }, 800);
   });
 }
 

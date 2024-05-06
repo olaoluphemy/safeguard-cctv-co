@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
@@ -18,7 +18,7 @@ function NavBar() {
       />
       {sideNavVisible && (
         <div
-          className=" bg-navOverlay fixed left-0 top-0 z-[1800] h-[100%] w-[100%] backdrop-blur-[2px] sm:hidden"
+          className=" fixed left-0 top-0 z-[1800] h-[100%] w-[100%] bg-navOverlay backdrop-blur-[2px] sm:hidden"
           onClick={() => setSideNavVisible(false)}
         ></div>
       )}
@@ -31,7 +31,7 @@ function NavBar() {
               className=" mr-5 cursor-pointer space-y-[2px] sm:hidden"
               onClick={() => setSideNavVisible(true)}
             >
-              <SideNavIcon setSideNavVisible={setSideNavVisible} />
+              <SideNavIcon />
             </nav>
             <h1 className="text-xl font-bold">
               <Link to="/home">safeguard</Link>
@@ -54,7 +54,9 @@ function NavBar() {
                 alt="arrow-down"
                 className=" h-[5px]"
               />
-              {servicesVisible && <Categories />}
+              {servicesVisible && (
+                <Categories setServicesVisible={setServicesVisible} />
+              )}
             </li>
             <li className=" cursor-pointer">
               <Link to="#contact-us">Contact Us</Link>
@@ -86,15 +88,34 @@ function NavBar() {
   );
 }
 
-function Categories() {
+function Categories({ setServicesVisible }) {
+  const categories = useRef(null);
+
   function comingSoon() {
     toast.success("COMING SOON", {});
   }
+
+  useEffect(
+    function () {
+      function handler(e) {
+        if (categories.current && !categories.current.contains(e.target))
+          setServicesVisible(false);
+      }
+
+      document.addEventListener("click", handler, true);
+
+      return function () {
+        document.removeEventListener("click", handler);
+      };
+    },
+    [setServicesVisible],
+  );
 
   return (
     <ul
       className="absolute left-0 top-4 w-[120px]  rounded-[10px] bg-white text-xs text-opacity-40"
       onClick={comingSoon}
+      ref={categories}
     >
       <li className="p-2 hover:bg-[#f4f4f4]">Installation</li>
       <li className="p-2 hover:bg-[#f4f4f4]">Maintenance</li>
@@ -134,16 +155,16 @@ function SideNav({ sideNavVisible, setSideNavVisible }) {
         onClick={() => setSideNavVisible((s) => !s)}
       >
         <Link to="/home">
-          <li className=" hover:bg-navHover  p-5">Home</li>
+          <li className=" p-5  hover:bg-navHover">Home</li>
         </Link>
         <Link to="#categories">
-          <li className=" hover:bg-navHover p-5">Categories</li>
+          <li className=" p-5 hover:bg-navHover">Categories</li>
         </Link>
         <Link>
-          <li className="hover:bg-navHover   p-5">Services</li>
+          <li className="p-5   hover:bg-navHover">Services</li>
         </Link>
         <Link to="#contact-us">
-          <li className=" hover:bg-navHover  p-5">Contact Us</li>
+          <li className=" p-5  hover:bg-navHover">Contact Us</li>
         </Link>
       </ul>
     </aside>

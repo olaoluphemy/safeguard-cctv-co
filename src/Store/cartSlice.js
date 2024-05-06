@@ -43,12 +43,11 @@ const cartSlice = createSlice({
     applyDiscount(state, action) {
       if (action.payload.toUpperCase() === state.couponCode)
         state.isDiscounted = true;
-
-      // console.log(current(state));
     },
 
     clearCart(state) {
       state.cart = [];
+      state.isDiscounted = false;
     },
   },
 });

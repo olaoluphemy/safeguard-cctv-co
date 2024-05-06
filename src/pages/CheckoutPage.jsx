@@ -7,16 +7,11 @@ import Header from "../ui/Header";
 // import CheckoutError from "../features/checkout/CheckoutError";
 import BillingInfo from "../features/checkout/BillingInfo";
 import OrderDetails from "../features/checkout/OrderDetails";
-import { completeOrder, setLoadingStatus } from "../Store/orderSlice";
-import { clearCart } from "../Store/cartSlice";
-import Loader from "../ui/Loader";
+import { completeOrder } from "../Store/orderSlice";
 
 function Checkout() {
   const cartItems = useSelector((store) => store.cart.cart);
   const formButton = useRef(null);
-  const loadingStatus = useSelector((store) => store.order.loadingStatus);
-  const isLoading = loadingStatus === "loading";
-
   const navigate = useNavigate();
 
   useEffect(
@@ -31,9 +26,6 @@ function Checkout() {
 
   return (
     <div className="relative">
-      {/* DIRTY TRICK TO DISPLAY LOADER */}
-      {isLoading && <Loader />}
-
       <Header content="Checkout" />
       <Container>
         <div className=" mx-auto w-[80%]  ">
@@ -56,24 +48,16 @@ function Checkout() {
 
 export default Checkout;
 
+// eslint-disable-next-line
 export async function action({ request }) {
   const formData = await request.formData();
 
   const data = Object.fromEntries(formData);
-  // Store.dispatch(data);
-
-  //Dirty trick to display loader :(
-  Store.dispatch(setLoadingStatus("loading"));
-
-  setTimeout(function () {
-    Store.dispatch(clearCart());
-  }, 3000);
 
   return await new Promise(function (resolve) {
     setTimeout(function () {
-      // Store.dispatch(setLoadingStatus("idle"));
       Store.dispatch(completeOrder(data));
       resolve(redirect("/cart/checkout/success"));
-    }, 2200);
+    }, 1500);
   });
 }

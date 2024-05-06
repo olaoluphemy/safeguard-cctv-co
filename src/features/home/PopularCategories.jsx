@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { popularCategoryData } from "../../data/popularCategoriesData";
 import Container from "../../ui/Container";
-import { useDispatch } from "react-redux";
-import { setLoadingStatus } from "../../Store/orderSlice";
 
 function PopularCategories() {
   return (
@@ -25,19 +23,13 @@ function PopularCategories() {
 function PopularCategoryItems({ data }) {
   const { imgSrc, description } = data;
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   return (
     <li
       className="group mb-5  lg:w-40"
       onClick={() => {
         if (description !== "Indoor") return;
-        dispatch(setLoadingStatus("loading"));
-
-        setTimeout(() => {
-          navigate("/products");
-          dispatch(setLoadingStatus("idle"));
-        }, 2500);
+        navigate("/products");
       }}
     >
       <div className="flex h-[6rem] items-center justify-center rounded-md border-[1px] border-borderLight px-2 py-1 transition-all hover:border-darkOrange">

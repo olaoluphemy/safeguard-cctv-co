@@ -11,15 +11,18 @@ import { Provider } from "react-redux";
 import store from "./Store/store";
 import Success from "./pages/Success";
 import CartPage from "./pages/CartPage";
-import ProductsList from "./features/products/ProductsList";
+import ProductsList, {
+  loader as ProductsListLoader,
+} from "./features/products/ProductsList";
 import ProductsPage from "./pages/ProductsPage";
 import Item, { loader as itemLoader } from "./features/products/Item";
 import Error from "./ui/Error";
+import ErrorPage from "./ui/ErrorPage";
 
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
-    errorElement: <Error />,
+    errorElement: <ErrorPage />,
     children: [
       {
         element: <Navigate to="/home" />,
@@ -36,6 +39,7 @@ const router = createBrowserRouter([
           {
             element: <ProductsList />,
             path: "/products",
+            loader: ProductsListLoader,
           },
           {
             element: <Item />,
@@ -60,6 +64,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  // {
+  //   element:<ErrorPage/>,
+  //   path: "*"
+  // }
 ]);
 
 function App() {
