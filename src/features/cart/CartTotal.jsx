@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function CartTotal() {
   return (
-    <div className=" mt-5 w-[300px] text-xs">
+    <div className=" mt-5 w-[310px] text-xs">
       <BillingInfo>
         <BillingInfo.Header description="Cart Totals" />
         <BillingInfo.CartTotals />
